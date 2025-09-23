@@ -8,8 +8,9 @@ from models import Event
 app = Blueprint('app', __name__)
 
 @app.route('/')
-def __index__():
+def index():
     events = Event.query.order_by(Event.date).all()
+    flash('It is a main page', 'info')
     return render_template('index.html', events=events)
 
 @app.route('/add', methods=['GET', 'POST'])
