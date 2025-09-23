@@ -26,3 +26,10 @@ def add_event():
         flash('Event added successfully.', 'success')
         return redirect(url_for('index'))
     return render_template('add_event.html', form=form)
+
+@app.route('/delete/<int:id>')
+def delete_event(id):
+    event = Event.query.get_or_404(id)
+    db.session.delete(event)
+    db.session.commit()
+    flash('Event deleted successfully.', 'success')
