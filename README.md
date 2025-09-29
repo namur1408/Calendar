@@ -18,16 +18,16 @@ Allows users to view a calendar, add events, and edit them.
 4. Run the application: 
     python app.py
 
-5. Open your browser and go to the link that was given to you
-  
+5. Open your browser and go to the link that was given tp you
 ## Project Structure
+```text
 calendar_app/
 ├─ templates/
 │  ├─ add_event.html
-│  └─ index.html 
+│  └─ index.html
 ├─ app.py
 ├─ db_config.py
 ├─ forms.py
 ├─ models.py
-├─ requirements.txt    # Python dependencies  
-└─ routes.py
+├─ routes.py
+└─ requirements.txt
