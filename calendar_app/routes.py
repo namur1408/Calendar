@@ -10,7 +10,6 @@ app = Blueprint('app', __name__)
 @app.route('/')
 def index():
     events = Event.query.order_by(Event.date).all()
-    flash('It is a main page', 'info')
     return render_template('index.html', events=events)
 
 @app.route('/add', methods=['GET', 'POST'])
@@ -25,7 +24,9 @@ def add_event():
         db.session.add(new_event)
         db.session.commit()
         flash('Event added successfully.', 'success')
-        return redirect(url_for('index'))
+        return redirect(url_for('app.index'))
+    elif form.is_submitted():  # форма отправлена, но есть ошибки
+        flash('Check the date — you can not use past date!', 'danger')
     return render_template('add_event.html', form=form)
 
 @app.route('/delete/<int:id>')
@@ -34,3 +35,4 @@ def delete_event(id):
     db.session.delete(event)
     db.session.commit()
     flash('Event deleted successfully.', 'success')
+    return redirect(url_for('app.index'))

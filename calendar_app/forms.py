@@ -1,10 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, DateTimeLocalField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, ValidationError
+from datetime import datetime
 
 class EventForm(FlaskForm):
     title = StringField('Event Title', validators=[DataRequired(), Length(max=100)])
     description = TextAreaField('Event Description', validators=[Length(max=500)])
     date = DateTimeLocalField('Event Date', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
 
-
+    def validate_date(self, field):
+        if field.data < datetime.now():
+            raise ValidationError("You can't use past date")
