@@ -10,15 +10,18 @@ Allows users to view a calendar, add events, and edit them.
    ```bash
    git clone https://github.com/namur1408/Calendar.git
 2. Navigate to the project folder:
+   ```bash
     cd Calendar
 
 3. Install dependencies:
+   ```bash
     pip install -r requirements.txt
-
-4. Run the application: 
+4. Run the application:
+   ```bash
     python app.py
 
-5. Open your browser and go to the link that was given tp you
+5. Open your browser and go to the link that was given to you
+   
 ## Project Structure
 ```text
 calendar_app/
