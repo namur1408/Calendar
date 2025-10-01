@@ -1,7 +1,7 @@
 # Calendar Planner
 
 A simple web calendar built with Python and HTML.  
-Allows users to view a calendar, add events, and edit them.
+Allows users to view a calendar, add events, and delete them.
 
 
 ## Installation
